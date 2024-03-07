@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06867F232B9A2CA90093216E /* LoginViewController.swift */; };
 		06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FD2B9A018900DF3070 /* AppDelegate.swift */; };
 		06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FF2B9A018900DF3070 /* SceneDelegate.swift */; };
 		06B383022B9A018900DF3070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B383012B9A018900DF3070 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06867F232B9A2CA90093216E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06B382FA2B9A018900DF3070 /* FilmTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B382FD2B9A018900DF3070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B382FF2B9A018900DF3070 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				06B3830E2B9A018C00DF3070 /* Info.plist */,
 				06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */,
 				06B383162B9A038100DF3070 /* UIView+pin.swift */,
+				06867F232B9A2CA90093216E /* LoginViewController.swift */,
 			);
 			path = FIlmTag;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */,
 				06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */,
 				06B383022B9A018900DF3070 /* ViewController.swift in Sources */,
 				06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */,
@@ -289,11 +293,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LP6FF36MS7;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FIlmTag/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br3nd4nt.FIlmTag;
+				PRODUCT_BUNDLE_IDENTIFIER = br3nd4nt.FilmTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,11 +323,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LP6FF36MS7;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FIlmTag/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,7 +337,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br3nd4nt.FIlmTag;
+				PRODUCT_BUNDLE_IDENTIFIER = br3nd4nt.FilmTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
