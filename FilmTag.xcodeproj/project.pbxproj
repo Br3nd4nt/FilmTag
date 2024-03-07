@@ -10,22 +10,22 @@
 		06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FD2B9A018900DF3070 /* AppDelegate.swift */; };
 		06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FF2B9A018900DF3070 /* SceneDelegate.swift */; };
 		06B383022B9A018900DF3070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B383012B9A018900DF3070 /* ViewController.swift */; };
-		06B383052B9A018900DF3070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B383032B9A018900DF3070 /* Main.storyboard */; };
 		06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */; };
 		06B3830A2B9A018C00DF3070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B383092B9A018C00DF3070 /* Assets.xcassets */; };
 		06B3830D2B9A018C00DF3070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B3830B2B9A018C00DF3070 /* LaunchScreen.storyboard */; };
+		06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B383162B9A038100DF3070 /* UIView+pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06B382FA2B9A018900DF3070 /* FIlmTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FIlmTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B382FA2B9A018900DF3070 /* FilmTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B382FD2B9A018900DF3070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B382FF2B9A018900DF3070 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		06B383012B9A018900DF3070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		06B383042B9A018900DF3070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06B383072B9A018900DF3070 /* FIlmTag.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FIlmTag.xcdatamodel; sourceTree = "<group>"; };
 		06B383092B9A018C00DF3070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B3830C2B9A018C00DF3070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B3830E2B9A018C00DF3070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B383162B9A038100DF3070 /* UIView+pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pin.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 		06B382FB2B9A018900DF3070 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				06B382FA2B9A018900DF3070 /* FIlmTag.app */,
+				06B382FA2B9A018900DF3070 /* FilmTag.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,11 +61,11 @@
 				06B382FD2B9A018900DF3070 /* AppDelegate.swift */,
 				06B382FF2B9A018900DF3070 /* SceneDelegate.swift */,
 				06B383012B9A018900DF3070 /* ViewController.swift */,
-				06B383032B9A018900DF3070 /* Main.storyboard */,
 				06B383092B9A018C00DF3070 /* Assets.xcassets */,
 				06B3830B2B9A018C00DF3070 /* LaunchScreen.storyboard */,
 				06B3830E2B9A018C00DF3070 /* Info.plist */,
 				06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */,
+				06B383162B9A038100DF3070 /* UIView+pin.swift */,
 			);
 			path = FIlmTag;
 			sourceTree = "<group>";
@@ -73,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		06B382F92B9A018900DF3070 /* FIlmTag */ = {
+		06B382F92B9A018900DF3070 /* FilmTag */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 06B383112B9A018C00DF3070 /* Build configuration list for PBXNativeTarget "FIlmTag" */;
+			buildConfigurationList = 06B383112B9A018C00DF3070 /* Build configuration list for PBXNativeTarget "FilmTag" */;
 			buildPhases = (
 				06B382F62B9A018900DF3070 /* Sources */,
 				06B382F72B9A018900DF3070 /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = FIlmTag;
+			name = FilmTag;
 			productName = FIlmTag;
-			productReference = 06B382FA2B9A018900DF3070 /* FIlmTag.app */;
+			productReference = 06B382FA2B9A018900DF3070 /* FilmTag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 06B382F52B9A018900DF3070 /* Build configuration list for PBXProject "FIlmTag" */;
+			buildConfigurationList = 06B382F52B9A018900DF3070 /* Build configuration list for PBXProject "FilmTag" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				06B382F92B9A018900DF3070 /* FIlmTag */,
+				06B382F92B9A018900DF3070 /* FilmTag */,
 			);
 		};
 /* End PBXProject section */
@@ -130,7 +130,6 @@
 			files = (
 				06B3830D2B9A018C00DF3070 /* LaunchScreen.storyboard in Resources */,
 				06B3830A2B9A018C00DF3070 /* Assets.xcassets in Resources */,
-				06B383052B9A018900DF3070 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +142,7 @@
 			files = (
 				06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */,
 				06B383022B9A018900DF3070 /* ViewController.swift in Sources */,
+				06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */,
 				06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */,
 				06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */,
 			);
@@ -151,14 +151,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		06B383032B9A018900DF3070 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06B383042B9A018900DF3070 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		06B3830B2B9A018C00DF3070 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -348,7 +340,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		06B382F52B9A018900DF3070 /* Build configuration list for PBXProject "FIlmTag" */ = {
+		06B382F52B9A018900DF3070 /* Build configuration list for PBXProject "FilmTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				06B3830F2B9A018C00DF3070 /* Debug */,
@@ -357,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		06B383112B9A018C00DF3070 /* Build configuration list for PBXNativeTarget "FIlmTag" */ = {
+		06B383112B9A018C00DF3070 /* Build configuration list for PBXNativeTarget "FilmTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				06B383122B9A018C00DF3070 /* Debug */,
