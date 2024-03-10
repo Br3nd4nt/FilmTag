@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */; };
+		065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */; };
+		065AEC242B9BC26000DC3AE3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */; };
+		065AEC262B9BC2E700DC3AE3 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */; };
+		065AEC2A2B9C9ADD00DC3AE3 /* FilmAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */; };
+		0664B4AB2B9D410C003641D2 /* FilmInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */; };
+		0664B4AD2B9D4418003641D2 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0664B4AC2B9D4418003641D2 /* StarRatingView.swift */; };
+		0664B4B02B9E084C003641D2 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 0664B4AF2B9E084C003641D2 /* Cosmos */; };
 		06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06867F232B9A2CA90093216E /* LoginViewController.swift */; };
+		06928AB92B9CE8B90048FC1D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 06928AB82B9CE8B90048FC1D /* SDWebImageSwiftUI */; };
+		06B2573B2B9B32B8003E6324 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B2573A2B9B32B8003E6324 /* Auth.swift */; };
 		06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FD2B9A018900DF3070 /* AppDelegate.swift */; };
 		06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B382FF2B9A018900DF3070 /* SceneDelegate.swift */; };
-		06B383022B9A018900DF3070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B383012B9A018900DF3070 /* ViewController.swift */; };
 		06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */; };
 		06B3830A2B9A018C00DF3070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B383092B9A018C00DF3070 /* Assets.xcassets */; };
 		06B3830D2B9A018C00DF3070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B3830B2B9A018C00DF3070 /* LaunchScreen.storyboard */; };
@@ -18,11 +27,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabController.swift; path = FilmTag/TabController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FilmTag/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = FilmTag/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserListViewController.swift; path = FilmTag/UserListViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmAPIController.swift; path = FilmTag/FilmAPIController.swift; sourceTree = SOURCE_ROOT; };
+		0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmInfoController.swift; path = FilmTag/FilmInfoController.swift; sourceTree = SOURCE_ROOT; };
+		0664B4AC2B9D4418003641D2 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarRatingView.swift; path = FilmTag/StarRatingView.swift; sourceTree = SOURCE_ROOT; };
 		06867F232B9A2CA90093216E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		06B2573A2B9B32B8003E6324 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		06B382FA2B9A018900DF3070 /* FilmTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B382FD2B9A018900DF3070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B382FF2B9A018900DF3070 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		06B383012B9A018900DF3070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06B383072B9A018900DF3070 /* FIlmTag.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FIlmTag.xcdatamodel; sourceTree = "<group>"; };
 		06B383092B9A018C00DF3070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B3830C2B9A018C00DF3070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0664B4B02B9E084C003641D2 /* Cosmos in Frameworks */,
+				06928AB92B9CE8B90048FC1D /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,15 +78,22 @@
 		06B382FC2B9A018900DF3070 /* FIlmTag */ = {
 			isa = PBXGroup;
 			children = (
+				06B2573A2B9B32B8003E6324 /* Auth.swift */,
 				06B382FD2B9A018900DF3070 /* AppDelegate.swift */,
 				06B382FF2B9A018900DF3070 /* SceneDelegate.swift */,
-				06B383012B9A018900DF3070 /* ViewController.swift */,
 				06B383092B9A018C00DF3070 /* Assets.xcassets */,
 				06B3830B2B9A018C00DF3070 /* LaunchScreen.storyboard */,
 				06B3830E2B9A018C00DF3070 /* Info.plist */,
 				06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */,
 				06B383162B9A038100DF3070 /* UIView+pin.swift */,
 				06867F232B9A2CA90093216E /* LoginViewController.swift */,
+				065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */,
+				065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */,
+				065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */,
+				065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */,
+				065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */,
+				0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */,
+				0664B4AC2B9D4418003641D2 /* StarRatingView.swift */,
 			);
 			path = FIlmTag;
 			sourceTree = "<group>";
@@ -89,6 +114,10 @@
 			dependencies = (
 			);
 			name = FilmTag;
+			packageProductDependencies = (
+				06928AB82B9CE8B90048FC1D /* SDWebImageSwiftUI */,
+				0664B4AF2B9E084C003641D2 /* Cosmos */,
+			);
 			productName = FIlmTag;
 			productReference = 06B382FA2B9A018900DF3070 /* FilmTag.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +146,10 @@
 				Base,
 			);
 			mainGroup = 06B382F12B9A018900DF3070;
+			packageReferences = (
+				06928AB72B9CE8B90048FC1D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				0664B4AE2B9E084C003641D2 /* XCRemoteSwiftPackageReference "Cosmos" */,
+			);
 			productRefGroup = 06B382FB2B9A018900DF3070 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,12 +176,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				065AEC242B9BC26000DC3AE3 /* SearchViewController.swift in Sources */,
+				065AEC262B9BC2E700DC3AE3 /* UserListViewController.swift in Sources */,
 				06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */,
+				0664B4AB2B9D410C003641D2 /* FilmInfoController.swift in Sources */,
+				065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */,
+				0664B4AD2B9D4418003641D2 /* StarRatingView.swift in Sources */,
 				06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */,
-				06B383022B9A018900DF3070 /* ViewController.swift in Sources */,
 				06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */,
+				065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */,
+				06B2573B2B9B32B8003E6324 /* Auth.swift in Sources */,
 				06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */,
 				06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */,
+				065AEC2A2B9C9ADD00DC3AE3 /* FilmAPIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +407,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0664B4AE2B9E084C003641D2 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
+		06928AB72B9CE8B90048FC1D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0664B4AF2B9E084C003641D2 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0664B4AE2B9E084C003641D2 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
+		06928AB82B9CE8B90048FC1D /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06928AB72B9CE8B90048FC1D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */ = {

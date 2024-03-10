@@ -16,6 +16,12 @@ enum Colors {
 }
 
 enum Constraints {
+    static let loginKey: String = "login key for userDefaults";
+    static let passwordKey: String = "password key for userDefaults";
+    
+    static let serverIP: String = "192.168.1.9:8080"
+    
+    
     static let appTitle: String = "FilmTag";
     static let loginTitle: String = "Log in";
     static let registerTitle: String = "Sign up";
@@ -52,8 +58,6 @@ enum Constraints {
 }
 
 final class LoginViewController: UIViewController {
-    private let saltForPassword = "TheQuickBrownFoxJumpsOverTheLazyDog";
-    
     
     private let defaults = UserDefaults.standard;
     
@@ -68,9 +72,13 @@ final class LoginViewController: UIViewController {
     private let registerButton: UIButton = UIButton();
     private let switchButton: UIButton = UIButton();
     
+    private let errorAlert: UIAlertController = UIAlertController(title: "Error", message: "Something went wrong. Please try again.", preferredStyle: .alert)
+    private let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        errorAlert.addAction(okAction)
         configureUI();
     }
     
@@ -169,6 +177,7 @@ final class LoginViewController: UIViewController {
         passwordInput.leftView = paddingView
         passwordInput.leftViewMode = .always
         
+        passwordInput.isSecureTextEntry = true;
         
         
         view.addSubview(passwordInput);
@@ -279,8 +288,7 @@ final class LoginViewController: UIViewController {
         loginInput.backgroundColor = Colors.white;
         passwordInput.backgroundColor = Colors.white;
         let login: String = loginInput.text!;
-        let password: String = passwordInput.text!;
-        var failed: Bool = false;
+        var password: String = passwordInput.text!;
         if (login.isEmpty) {
             loginInput.backgroundColor = Colors.red;
             return;
@@ -290,47 +298,23 @@ final class LoginViewController: UIViewController {
             passwordInput.backgroundColor = Colors.red;
             return;
         }
-        let passwordHash: Int = (password + saltForPassword).hashValue;
         
-        let urlString = "http://192.168.1.9:8080/users/login/" + login + "/" + String(passwordHash);
+        Auth.login(login: login, password: password, completion: { response, error in
+          if let error = error {
+            print("Error during login: \(error.localizedDescription)")
+              self.displayErrorMessage()
+            // Handle error appropriately (e.g., display an error message)
+          } else if let response = response {
+            print(response)
+
+            var failed = response.login.isEmpty || response.passwordHash.isEmpty;
+            self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
+          } else {
+            // Handle unexpected scenario (shouldn't happen if error handling is proper)
+            print("Unexpected response during login")
+          }
+        });
         
-        guard let url = URL(string: urlString) else {
-            failed = true;
-            return;
-        };
-        var urlRequest = URLRequest(url: url);
-        urlRequest.httpMethod = "GET";
-        
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Error fetching data: \(error)")
-                    failed = true;
-                    return
-                }
-                
-                guard let data = data else {
-                    print("No data received")
-                    failed = true;
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let decodedData = try decoder.decode(ServerResponse.self, from: data)
-                    
-                    let login:String = decodedData.login;
-                    let hash:String = decodedData.passwordHash;
-                    if (login.isEmpty || hash.isEmpty) {
-                        failed = true;
-                    }
-                    self.onServerResponse(login: login, hash: hash, failed: failed)
-                    
-                } catch {
-                    failed = true;
-                }
-            }
-        }
-        dataTask.resume()
     }
     
     @objc
@@ -338,8 +322,7 @@ final class LoginViewController: UIViewController {
         loginInput.backgroundColor = Colors.white;
         passwordInput.backgroundColor = Colors.white;
         let login: String = loginInput.text!;
-        let password: String = passwordInput.text!;
-        var failed: Bool = false;
+        var password: String = passwordInput.text!;
         if (login.isEmpty) {
             loginInput.backgroundColor = Colors.red;
             return;
@@ -349,60 +332,43 @@ final class LoginViewController: UIViewController {
             passwordInput.backgroundColor = Colors.red;
             return;
         }
-        let passwordHash: Int = (password + saltForPassword).hashValue;
         
-        let urlString = "http://192.168.1.9:8080/users/register/" + login + "/" + String(passwordHash);
+        Auth.register(login: login, password: password, completion: { response, error in
+          if let error = error {
+            print("Error during login: \(error.localizedDescription)")
+              self.displayErrorMessage()
+            // Handle error appropriately (e.g., display an error message)
+          } else if let response = response {
+            print(response)
+
+            var failed = response.login.isEmpty || response.passwordHash.isEmpty;
+            self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
+          } else {
+            // Handle unexpected scenario (shouldn't happen if error handling is proper)
+            print("Unexpected response during login")
+          }
+        });
         
-        guard let url = URL(string: urlString) else {
-            failed = true;
-            return;
-        };
-        var urlRequest = URLRequest(url: url);
-        urlRequest.httpMethod = "GET";
-        
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Error fetching data: \(error)")
-                    failed = true;
-                    return
-                }
-                
-                guard let data = data else {
-                    print("No data received")
-                    failed = true;
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let decodedData = try decoder.decode(ServerResponse.self, from: data)
-                    
-                    let login:String = decodedData.login;
-                    let hash:String = decodedData.passwordHash;
-                    if (login.isEmpty || hash.isEmpty) {
-                        failed = true;
-                    }
-                    self.onServerResponse(login: login, hash: hash, failed: failed)
-                    
-                } catch {
-                    failed = true;
-                }
-            }
-        }
-        dataTask.resume()
     }
     
     private func onServerResponse(login: String, hash: String, failed: Bool) {
-        if (failed) {
-            self.appTitle.textColor = .red;
-        } else {
-            self.appTitle.textColor = .green;
+        DispatchQueue.main.async {
+            if (failed) {
+                self.displayErrorMessage();
+//                self.appTitle.textColor = .red;
+                return;
+            } else {
+//                self.appTitle.textColor = .green;
+            }
+            self.defaults.set(login, forKey: Constraints.loginKey);
+            self.defaults.set(hash, forKey: Constraints.passwordKey);
+            self.dismiss(animated: true);
         }
     }
-}
-
-
-private struct ServerResponse : Codable, Hashable {
-    let login: String
-    let passwordHash: String
+    
+    private func displayErrorMessage(){
+        DispatchQueue.main.async{
+            self.present(self.errorAlert, animated: true, completion: nil);
+        }
+    }
 }
