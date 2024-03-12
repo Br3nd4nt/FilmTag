@@ -362,6 +362,7 @@ final class LoginViewController: UIViewController {
             }
             self.defaults.set(login, forKey: Constraints.loginKey);
             self.defaults.set(hash, forKey: Constraints.passwordKey);
+            self.passwordInput.text = ""
             self.dismiss(animated: true);
         }
     }

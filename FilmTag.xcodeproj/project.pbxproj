@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A13392BA06C65006A9DDF /* AppInfoViewController.swift */; };
+		063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */; };
 		065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */; };
 		065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */; };
 		065AEC242B9BC26000DC3AE3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */; };
 		065AEC262B9BC2E700DC3AE3 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */; };
 		065AEC2A2B9C9ADD00DC3AE3 /* FilmAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */; };
+		065CB2532B9FFDCF002575F3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CB2522B9FFDCF002575F3 /* SettingsViewController.swift */; };
 		0664B4AB2B9D410C003641D2 /* FilmInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */; };
-		0664B4AD2B9D4418003641D2 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0664B4AC2B9D4418003641D2 /* StarRatingView.swift */; };
 		0664B4B02B9E084C003641D2 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 0664B4AF2B9E084C003641D2 /* Cosmos */; };
 		06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06867F232B9A2CA90093216E /* LoginViewController.swift */; };
 		06928AB92B9CE8B90048FC1D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 06928AB82B9CE8B90048FC1D /* SDWebImageSwiftUI */; };
@@ -27,13 +29,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabController.swift; path = FilmTag/TabController.swift; sourceTree = SOURCE_ROOT; };
-		065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FilmTag/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
-		065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = FilmTag/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserListViewController.swift; path = FilmTag/UserListViewController.swift; sourceTree = SOURCE_ROOT; };
-		065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmAPIController.swift; path = FilmTag/FilmAPIController.swift; sourceTree = SOURCE_ROOT; };
-		0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmInfoController.swift; path = FilmTag/FilmInfoController.swift; sourceTree = SOURCE_ROOT; };
-		0664B4AC2B9D4418003641D2 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarRatingView.swift; path = FilmTag/StarRatingView.swift; sourceTree = SOURCE_ROOT; };
+		063A13392BA06C65006A9DDF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppInfoViewController.swift; path = FilmTag/Views/AppInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeLoginViewController.swift; path = FilmTag/Views/ChangeLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabController.swift; path = FIlmTag/Views/TabController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FIlmTag/Views/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = FIlmTag/Views/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserListViewController.swift; path = FIlmTag/Views/UserListViewController.swift; sourceTree = SOURCE_ROOT; };
+		065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmAPIController.swift; path = FIlmTag/APIs/FilmAPIController.swift; sourceTree = SOURCE_ROOT; };
+		065CB2522B9FFDCF002575F3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = FIlmTag/Views/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
+		0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmInfoController.swift; path = FIlmTag/Views/FilmInfoController.swift; sourceTree = SOURCE_ROOT; };
 		06867F232B9A2CA90093216E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06B2573A2B9B32B8003E6324 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		06B382FA2B9A018900DF3070 /* FilmTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +63,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065CB2542BA04B7F002575F3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */,
+				065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */,
+				065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */,
+				0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */,
+				065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */,
+				065CB2522B9FFDCF002575F3 /* SettingsViewController.swift */,
+				06867F232B9A2CA90093216E /* LoginViewController.swift */,
+				063A13392BA06C65006A9DDF /* AppInfoViewController.swift */,
+				063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		065CB2552BA04B8E002575F3 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */,
+				06B2573A2B9B32B8003E6324 /* Auth.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
 		06B382F12B9A018900DF3070 = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +107,8 @@
 		06B382FC2B9A018900DF3070 /* FIlmTag */ = {
 			isa = PBXGroup;
 			children = (
-				06B2573A2B9B32B8003E6324 /* Auth.swift */,
+				065CB2552BA04B8E002575F3 /* APIs */,
+				065CB2542BA04B7F002575F3 /* Views */,
 				06B382FD2B9A018900DF3070 /* AppDelegate.swift */,
 				06B382FF2B9A018900DF3070 /* SceneDelegate.swift */,
 				06B383092B9A018C00DF3070 /* Assets.xcassets */,
@@ -86,14 +116,6 @@
 				06B3830E2B9A018C00DF3070 /* Info.plist */,
 				06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */,
 				06B383162B9A038100DF3070 /* UIView+pin.swift */,
-				06867F232B9A2CA90093216E /* LoginViewController.swift */,
-				065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */,
-				065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */,
-				065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */,
-				065AEC252B9BC2E700DC3AE3 /* UserListViewController.swift */,
-				065AEC292B9C9ADD00DC3AE3 /* FilmAPIController.swift */,
-				0664B4AA2B9D410C003641D2 /* FilmInfoController.swift */,
-				0664B4AC2B9D4418003641D2 /* StarRatingView.swift */,
 			);
 			path = FIlmTag;
 			sourceTree = "<group>";
@@ -181,11 +203,13 @@
 				06867F242B9A2CA90093216E /* LoginViewController.swift in Sources */,
 				0664B4AB2B9D410C003641D2 /* FilmInfoController.swift in Sources */,
 				065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */,
-				0664B4AD2B9D4418003641D2 /* StarRatingView.swift in Sources */,
 				06B383082B9A018900DF3070 /* FIlmTag.xcdatamodeld in Sources */,
 				06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */,
 				065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */,
+				065CB2532B9FFDCF002575F3 /* SettingsViewController.swift in Sources */,
+				063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */,
 				06B2573B2B9B32B8003E6324 /* Auth.swift in Sources */,
+				063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */,
 				06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */,
 				06B383002B9A018900DF3070 /* SceneDelegate.swift in Sources */,
 				065AEC2A2B9C9ADD00DC3AE3 /* FilmAPIController.swift in Sources */,

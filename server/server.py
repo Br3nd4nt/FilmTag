@@ -38,6 +38,31 @@ def login(username, passwordHash):
         print(response)
         return response
 
+@app.route('/users/change_password/<username>/<oldPasswordHash>/<newPasswordHash>')
+def change_password(username, oldPasswordHash, newPasswordHash):
+    result = db.change_password(username, oldPasswordHash, newPasswordHash)
+    if result:
+        response = {"login": username, "passwordHash": newPasswordHash}
+        print(response)
+        return response
+    else:
+        response = {"login": "", "passwordHash": ""}
+        print(response)
+        return response
+
+@app.route('/users/change_username/<oldUsername>/<newUsername>/<passwordHash>')
+def change_username(oldUsername, newUsername, passwordHash):
+    result = db.change_username(oldUsername, newUsername, passwordHash)
+    if result:
+        response = {"login": newUsername, "passwordHash": passwordHash}
+        print(response)
+        return response
+    else:
+        response = {"login": "", "passwordHash": ""}
+        print(response)
+        return response
+
+#films
 @app.route('/get/<title>')
 def get(title):
     res = db.get_film_by_title(title)

@@ -70,6 +70,39 @@ class Database():
         self.conn.close()
         return user
 
+    def change_password(self, login, oldPasswordHash, hashedPassword):
+        self.conn = sqlite3.connect('database.db')
+        self.cursor = self.conn.cursor()
+        self.cursor.execute('''
+            SELECT * FROM users WHERE login = ? AND hashedPassword = ?
+        ''', (login, oldPasswordHash))
+        user = self.cursor.fetchone()
+        if user:
+            self.cursor.execute('''
+                UPDATE users SET hashedPassword = ? WHERE login = ?
+            ''', (hashedPassword, login))
+            self.conn.commit()
+            self.conn.close()
+            return True
+        self.conn.close()
+        return False
+
+    def change_username(self, oldLogin, newLogin, hashedPassword):
+        self.conn = sqlite3.connect('database.db')
+        self.cursor = self.conn.cursor()
+        self.cursor.execute('''
+            SELECT * FROM users WHERE login = ? AND hashedPassword = ?
+        ''', (oldLogin, hashedPassword))
+        user = self.cursor.fetchone()
+        if user:
+            self.cursor.execute('''
+                UPDATE users SET login = ? WHERE login = ?
+            ''', (newLogin, oldLogin))
+            self.conn.commit()
+            self.conn.close()
+            return True
+        self.conn.close()
+        return False
 
     def get_film_by_title(self, title):
         self.conn = sqlite3.connect('database.db')

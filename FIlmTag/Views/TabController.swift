@@ -10,9 +10,12 @@ import UIKit
 class TabController : UITabBarController {
     private let defaults = UserDefaults.standard
     private let loginVC = LoginViewController()
+    static let functionCallNotification = Notification.Name("UserDidLogout")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFunctionCall), name: TabController.functionCallNotification, object: nil)
         
         self.setupTabs();
         self.tabBar.isTranslucent = false;
@@ -26,9 +29,11 @@ class TabController : UITabBarController {
     }
     
     private func setupTabs() {
-        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: HomeViewController())
+        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: SettingsViewController())
+//        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: HomeViewController())
         let search = self.createNav(with: "Search", and: UIImage(systemName: "magnifyingglass"), vc: SearchViewController())
         let list = self.createNav(with: "My list", and: UIImage(systemName: "list.bullet"), vc: UserListViewController())
+        
         
         self.setViewControllers([home, search, list], animated: true)
     }
@@ -79,5 +84,13 @@ class TabController : UITabBarController {
                 }
             });
         }
+    }
+    
+    @objc func handleFunctionCall() {
+        print("notification accepted")
+        defaults.setValue("", forKey: Constraints.loginKey)
+        defaults.setValue("", forKey: Constraints.passwordKey)
+        self.selectedIndex = 0
+        self.checkDefaults()
     }
 }
