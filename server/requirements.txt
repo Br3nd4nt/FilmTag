@@ -1,4 +1,0 @@
-requests
-flask
-sqlite3
-json
