@@ -88,12 +88,12 @@ class SettingsViewController: UIViewController {
     
     @objc
     private func changeLoginButtonPressed() {
-        
+        navigationController?.pushViewController(ChangeLoginViewController(), animated: true)
     }
     
     @objc 
     func changePasswordButtonPressed() {
-        
+        navigationController?.pushViewController(ChangePasswordViewController(), animated: true)
     }
     
 }

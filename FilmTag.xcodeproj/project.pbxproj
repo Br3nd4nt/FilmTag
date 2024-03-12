@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06389A982BA0B76500A11185 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06389A972BA0B76500A11185 /* ChangePasswordViewController.swift */; };
 		063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A13392BA06C65006A9DDF /* AppInfoViewController.swift */; };
 		063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */; };
 		065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06389A972BA0B76500A11185 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		063A13392BA06C65006A9DDF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppInfoViewController.swift; path = FilmTag/Views/AppInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeLoginViewController.swift; path = FilmTag/Views/ChangeLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabController.swift; path = FIlmTag/Views/TabController.swift; sourceTree = SOURCE_ROOT; };
@@ -75,6 +77,7 @@
 				06867F232B9A2CA90093216E /* LoginViewController.swift */,
 				063A13392BA06C65006A9DDF /* AppInfoViewController.swift */,
 				063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */,
+				06389A972BA0B76500A11185 /* ChangePasswordViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				06B383172B9A038100DF3070 /* UIView+pin.swift in Sources */,
 				065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */,
 				065CB2532B9FFDCF002575F3 /* SettingsViewController.swift in Sources */,
+				06389A982BA0B76500A11185 /* ChangePasswordViewController.swift in Sources */,
 				063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */,
 				06B2573B2B9B32B8003E6324 /* Auth.swift in Sources */,
 				063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */,

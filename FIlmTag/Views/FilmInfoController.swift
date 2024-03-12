@@ -27,6 +27,10 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userReview.delegate = self
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false  // Optional: Allow taps to go through to underlying views
+        view.addGestureRecognizer(tapGesture)
+        
         starRating.settings.filledColor = Colors.red
         starRating.settings.filledBorderColor = Colors.red
         starRating.settings.emptyBorderColor = Colors.white
@@ -152,4 +156,7 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)  // Resigns first responder status, dismissing keyboard
+    }
 }

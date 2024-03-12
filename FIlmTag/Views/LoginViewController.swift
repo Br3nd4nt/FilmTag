@@ -19,7 +19,7 @@ enum Constraints {
     static let loginKey: String = "login key for userDefaults";
     static let passwordKey: String = "password key for userDefaults";
     
-    static let serverIP: String = "192.168.1.9:8080"
+    static let serverIP: String = "79.137.203.25:8080"
     
     
     static let appTitle: String = "FilmTag";
@@ -78,6 +78,11 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false  // Optional: Allow taps to go through to underlying views
+        view.addGestureRecognizer(tapGesture)
+        
         errorAlert.addAction(okAction)
         configureUI();
     }
@@ -371,5 +376,9 @@ final class LoginViewController: UIViewController {
         DispatchQueue.main.async{
             self.present(self.errorAlert, animated: true, completion: nil);
         }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)  // Resigns first responder status, dismissing keyboard
     }
 }
