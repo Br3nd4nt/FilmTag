@@ -21,8 +21,8 @@ class Database():
             CREATE TABLE IF NOT EXISTS films (
                 id INTEGER PRIMARY KEY,
                 title TEXT,
-                apiId INTEGER,
-                description TEXT,
+                 INTEGER,
+                description TapiIdEXT,
                 posterUrl TEXT,
                 reviewAverage REAL
             )

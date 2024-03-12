@@ -14,3 +14,6 @@ class Review:
             "text": self.text,
             "poster_path": self.poster_path
         }
+    
+    def __str__(self):
+        return f"{self.username} - {self.title} - {self.stars} - {self.text} - {self.poster_path}"

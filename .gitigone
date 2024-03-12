@@ -1,3 +1,4 @@
 .DS_Store
 run
 server/database.db
+server/__pycache__/
