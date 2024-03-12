@@ -109,4 +109,4 @@ def get_similar(filmTitle):
         return json.dumps({'error': 'Film not found'}, default=lambda o: o.__dict__)
 
 if __name__ == '__main__':
-    app.run(port=8080, host="192.168.1.9")
+    app.run(port=8080, host="79.137.203.25")
