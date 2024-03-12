@@ -205,7 +205,7 @@ final class FilmTableCell: UITableViewCell {
         wrap.addSubview(posterView)
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.numberOfLines = 2
+        titleView.numberOfLines = 0
         wrap.addSubview(titleView)
         
         overviewView.translatesAutoresizingMaskIntoConstraints = false
@@ -225,9 +225,10 @@ final class FilmTableCell: UITableViewCell {
         titleView.pinRight(to: wrap)
         
         overviewView.pinLeft(to: posterView.trailingAnchor)
+        overviewView.pinBottom(to: wrap.bottomAnchor)
         overviewView.pinTop(to: titleView.bottomAnchor)
         overviewView.pinRight(to: wrap.trailingAnchor)
-        overviewView.pinBottom(to: wrap.bottomAnchor)
+        
 
         titleView.font = UIFont.boldSystemFont(ofSize: 30)
         titleView.textColor = Colors.white

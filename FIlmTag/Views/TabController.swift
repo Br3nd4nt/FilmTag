@@ -29,13 +29,13 @@ class TabController : UITabBarController {
     }
     
     private func setupTabs() {
-        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: SettingsViewController())
-//        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: HomeViewController())
+        
+        let home = self.createNav(with: "Home", and: UIImage(systemName: "house"), vc: HomeViewController())
         let search = self.createNav(with: "Search", and: UIImage(systemName: "magnifyingglass"), vc: SearchViewController())
         let list = self.createNav(with: "My list", and: UIImage(systemName: "list.bullet"), vc: UserListViewController())
+        let settings = self.createNav(with: "Settings", and: UIImage(systemName: "gear"), vc: SettingsViewController())
         
-        
-        self.setViewControllers([home, search, list], animated: true)
+        self.setViewControllers([home, search, list, settings], animated: true)
     }
     
     private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController{

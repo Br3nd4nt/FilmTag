@@ -89,6 +89,35 @@ class FilmAPIController {
         }
         task.resume();
     }
+    
+    static func getSimmilar(_ filmName: String, completion: @escaping ([Film?], Error?) -> Void) {
+        let urlString: String = "http://" + Constraints.serverIP + "/get_similar/" + filmName;
+        guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {return;};
+        var urlRequest = URLRequest(url: url);
+        urlRequest.httpMethod = "GET";
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                completion([nil], error);
+                return;
+            }
+            do {
+                if (data == nil) {
+                    completion([nil], nil);
+                } else {
+                    let dataUnwrapped = data!;
+                    
+                    let decoder = JSONDecoder();
+                    let decodedData = try decoder.decode([Film].self, from: dataUnwrapped);
+                    completion(decodedData, nil);
+                }
+            } catch {
+                completion([nil], nil);
+            }
+        }
+        task.resume();
+    }
+    
 }
 
 struct Film: Codable, Hashable {

@@ -99,6 +99,7 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         titleView.pinTop(to: posterView.bottomAnchor, 10)
         titleView.font = UIFont.boldSystemFont(ofSize: 40)
         titleView.textColor = Colors.white
+        titleView.numberOfLines = 0
         
         descriptionView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.clipsToBounds = true
