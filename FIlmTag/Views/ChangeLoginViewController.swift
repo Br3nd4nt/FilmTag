@@ -52,8 +52,8 @@ class ChangeLoginViewController: UIViewController {
         oldLoginField.pinTop(to: oldLoginTitle.bottomAnchor, 5)
         oldLoginField.pinLeft(to: view, 20)
         oldLoginField.pinRight(to: view, 20)
-        oldLoginField.backgroundColor = Colors.white;
-        oldLoginField.textColor = Colors.dark;
+        oldLoginField.backgroundColor = Colors.white
+        oldLoginField.textColor = Colors.dark
         oldLoginField.layer.cornerRadius = 10
         oldLoginField.font = UIFont.systemFont(ofSize: 25)
         
@@ -68,8 +68,8 @@ class ChangeLoginViewController: UIViewController {
         newLoginField.pinTop(to: newLoginTitle.bottomAnchor, 5)
         newLoginField.pinLeft(to: view, 20)
         newLoginField.pinRight(to: view, 20)
-        newLoginField.backgroundColor = Colors.white;
-        newLoginField.textColor = Colors.dark;
+        newLoginField.backgroundColor = Colors.white
+        newLoginField.textColor = Colors.dark
         newLoginField.layer.cornerRadius = 10
         newLoginField.font = UIFont.systemFont(ofSize: 25)
         
@@ -84,8 +84,8 @@ class ChangeLoginViewController: UIViewController {
         passwordField.pinTop(to: passwordLabel.bottomAnchor, 5)
         passwordField.pinLeft(to: view, 20)
         passwordField.pinRight(to: view, 20)
-        passwordField.backgroundColor = Colors.white;
-        passwordField.textColor = Colors.dark;
+        passwordField.backgroundColor = Colors.white
+        passwordField.textColor = Colors.dark
         passwordField.layer.cornerRadius = 10
         passwordField.font = UIFont.systemFont(ofSize: 25)
         
@@ -130,26 +130,26 @@ class ChangeLoginViewController: UIViewController {
             print("Error during changing login: \(error.localizedDescription)")
           } else if let response = response {
             print(response)
-            var failed = response.login.isEmpty || response.passwordHash.isEmpty;
+            var failed = response.login.isEmpty || response.passwordHash.isEmpty
             self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
           } else {
             print("Unexpected response during login")
           }
-        });
+        })
     }
     
     private func onServerResponse(login: String, hash: String, failed: Bool) {
         DispatchQueue.main.async {
             if (failed) {
-                return;
+                return
             }
-            self.defaults.set(login, forKey: Constraints.loginKey);
-            self.defaults.set(hash, forKey: Constraints.passwordKey);
+            self.defaults.set(login, forKey: Constraints.loginKey)
+            self.defaults.set(hash, forKey: Constraints.passwordKey)
             self.oldLoginField.text = ""
             self.newLoginField.text = ""
             self.passwordField.text = ""
             
-            self.present(self.loginOkAlert, animated: true, completion: nil);
+            self.present(self.loginOkAlert, animated: true, completion: nil)
         }
     }
     

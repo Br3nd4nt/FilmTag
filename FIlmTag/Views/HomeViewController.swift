@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
       let button = UIButton(type: .custom)
       let configuration = UIImage.SymbolConfiguration(pointSize: 30)
         button.setImage(UIImage(systemName: "arrow.counterclockwise", withConfiguration: configuration)!.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.backgroundColor = UIColor(displayP3Red: 160/255, green: 211/255, blue: 196/255, alpha: 1);
+        button.backgroundColor = UIColor(displayP3Red: 160/255, green: 211/255, blue: 196/255, alpha: 1)
         button.tintColor = .white
       return button
     }()
@@ -26,9 +26,9 @@ class HomeViewController: UIViewController {
     private let table: UITableView = UITableView()
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         self.username = defaults.string(forKey: Constraints.loginKey)!
-        self.view.backgroundColor = Colors.dark;
+        self.view.backgroundColor = Colors.dark
         configureUI()
     }
     
@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
         view.addSubview(table)
         table.backgroundColor = Colors.dark
         table.dataSource = self
+        table.delegate = self
         table.separatorStyle = .singleLine
         table.pinTop(to: filmsToWatchLabel.bottomAnchor, 10)
         table.pinLeft(to:  view)
@@ -87,6 +88,7 @@ class HomeViewController: UIViewController {
                 }
                 if reviews.isEmpty {
                     print("no reviews good enough")
+                    self.shuffleButton.isEnabled = true
                     return
                 }
                 let goodFilm = reviews.randomElement()!.title
@@ -120,13 +122,15 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController : UITableViewDelegate {}
+
 extension HomeViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.films.count;
+        return self.films.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,12 +139,12 @@ extension HomeViewController : UITableViewDataSource {
             cell.configure(with: self.films[indexPath.row])
             return cell
         } else {
-            return cell;
+            return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filmInfo: FilmInfoController = FilmInfoController();
+        let filmInfo: FilmInfoController = FilmInfoController()
         filmInfo.film = films[indexPath.row]
         present(filmInfo, animated: true)
     }

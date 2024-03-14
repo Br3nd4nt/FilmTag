@@ -11,11 +11,11 @@ import SDWebImage
 class SearchViewController: UIViewController {
     private var timer: Timer?
     
-    private let searchController: UISearchController = UISearchController(searchResultsController: nil);
+    private let searchController: UISearchController = UISearchController(searchResultsController: nil)
     private let table: UITableView = UITableView(frame: .zero)
-    private var films: [FilmForDisplay] = [];
+    private var films: [FilmForDisplay] = []
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         self.view.backgroundColor = Colors.dark
         self.setupSearchController()
         self.configureTable()
@@ -49,7 +49,7 @@ extension SearchViewController: UISearchResultsUpdating {
         if (text.isEmpty || text.count < 3) {
             self.timer?.invalidate()
             self.films = []
-            return;
+            return
         }
         
         let debouncedSearch = debounce(interval: 1.5) {
@@ -100,7 +100,7 @@ extension SearchViewController : UITableViewDataSource {
     }
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.films.count;
+        return self.films.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,12 +109,12 @@ extension SearchViewController : UITableViewDataSource {
             cell.configure(with: self.films[indexPath.row])
             return cell
         } else {
-            return cell;
+            return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filmInfo: FilmInfoController = FilmInfoController();
+        let filmInfo: FilmInfoController = FilmInfoController()
         filmInfo.film = films[indexPath.row]
         present(filmInfo, animated: true)
     }

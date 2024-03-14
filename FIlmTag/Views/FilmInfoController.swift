@@ -16,10 +16,10 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
     private let posterView: UIImageView = UIImageView()
     private let titleView: UILabel = UILabel()
     private let descriptionView: UILabel = UILabel()
-    private let starRating: CosmosView = CosmosView();
-    private let userReview: UITextField = UITextField();
-    private let sendReviewButton: UIButton = UIButton();
-    private let scrollView: UIScrollView = UIScrollView();
+    private let starRating: CosmosView = CosmosView()
+    private let userReview: UITextField = UITextField()
+    private let sendReviewButton: UIButton = UIButton()
+    private let scrollView: UIScrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,8 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         titleView.translatesAutoresizingMaskIntoConstraints = false
         titleView.clipsToBounds = true
         scrollView.addSubview(titleView)
-        titleView.pinCenterX(to: scrollView)
+        titleView.pinLeft(to: scrollView, 10)
+        titleView.pinRight(to: scrollView, 10)
         titleView.pinTop(to: posterView.bottomAnchor, 10)
         titleView.font = UIFont.boldSystemFont(ofSize: 40)
         titleView.textColor = Colors.white

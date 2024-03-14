@@ -88,7 +88,7 @@ extension UserListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reviews.count;
+        return self.reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,7 +97,7 @@ extension UserListViewController: UITableViewDataSource {
             cell.configure(with: self.reviews[indexPath.row])
             return cell
         } else {
-            return cell;
+            return cell
         }
     }
 }
