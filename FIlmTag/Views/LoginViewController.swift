@@ -21,13 +21,11 @@ enum Constraints {
     
     static let serverIP: String = "79.137.203.25:8080"
     
-    
     static let appTitle: String = "FilmTag";
     static let loginTitle: String = "Log in";
     static let registerTitle: String = "Sign up";
     
-    static let appTitleSize: CGFloat = 60;
-    static let appTitleTop: CGFloat = 40;
+    static let appLogoTop: CGFloat = 40;
     
     static let enterTitleSize: CGFloat = 40;
     static let enterTitleTop: CGFloat = 30;
@@ -63,7 +61,7 @@ final class LoginViewController: UIViewController {
     
     private var isLoginSelected = true;
     
-    private let appTitle: UILabel = UILabel();
+    private let appLogo: UIImageView = UIImageView()
     private let loginTitle: UILabel = UILabel();
     private let registerTitle: UILabel = UILabel();
     private let loginInput: UITextField = UITextField();
@@ -75,12 +73,14 @@ final class LoginViewController: UIViewController {
     private let errorAlert: UIAlertController = UIAlertController(title: "Error", message: "Something went wrong. Please try again.", preferredStyle: .alert)
     private let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
     
+    private let loginRegEx: String = "([(0-9)(A-Z)(!@#$%)]+)([a-z]*){4,15}"
+    private let passwordRegEx: String = "([(0-9)(A-Z)(!@#$%ˆ&*+-=<>)]+)([a-z]*){8,20}"
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGesture.cancelsTouchesInView = false  // Optional: Allow taps to go through to underlying views
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
         
         errorAlert.addAction(okAction)
@@ -89,7 +89,7 @@ final class LoginViewController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = Colors.dark;
-        configureAppTitle();
+        configureAppLogo();
         configureEnterTitles();
         configureLoginInput();
         configurePasswordInput();
@@ -97,16 +97,17 @@ final class LoginViewController: UIViewController {
         configureSwitchButton();
     }
     
-    private func configureAppTitle() {
-        appTitle.translatesAutoresizingMaskIntoConstraints = false;
-        appTitle.text = Constraints.appTitle;
-        appTitle.font = UIFont.boldSystemFont(ofSize: Constraints.appTitleSize);
-        appTitle.textColor = Colors.white;
+    private func configureAppLogo() {
+        appLogo.image = UIImage(named: "appLogo")
+        let newWidth = self.view.frame.width - 80
+        let ratio = appLogo.image!.size.width / appLogo.image!.size.height
+        let newHeight = newWidth / ratio
+        appLogo.image = appLogo.image?.resize(to: CGSize(width: newWidth, height: newHeight))
+        appLogo.translatesAutoresizingMaskIntoConstraints = false;
+        view.addSubview(appLogo);
         
-        view.addSubview(appTitle);
-        
-        appTitle.pinCenterX(to: view);
-        appTitle.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constraints.appTitleTop);
+        appLogo.pinCenterX(to: view);
+        appLogo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constraints.appLogoTop);
     }
     
     private func configureEnterTitles() {
@@ -128,8 +129,8 @@ final class LoginViewController: UIViewController {
         loginTitle.pinCenterX(to: view);
         registerTitle.pinCenterX(to: view);
         
-        loginTitle.pinTop(to: appTitle.bottomAnchor, Constraints.enterTitleTop);
-        registerTitle.pinTop(to: appTitle.bottomAnchor, Constraints.enterTitleTop);
+        loginTitle.pinTop(to: appLogo.bottomAnchor, Constraints.enterTitleTop);
+        registerTitle.pinTop(to: appLogo.bottomAnchor, Constraints.enterTitleTop);
         
         if (isLoginSelected) {
             registerTitle.isHidden = true;
@@ -142,7 +143,6 @@ final class LoginViewController: UIViewController {
     
     private func configureLoginInput() {
         loginInput.translatesAutoresizingMaskIntoConstraints = false;
-        
         loginInput.placeholder = Constraints.loginInputPlaceholder;
         loginInput.attributedPlaceholder = NSAttributedString(string: loginInput.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
         loginInput.backgroundColor = Colors.white;
@@ -150,17 +150,11 @@ final class LoginViewController: UIViewController {
         loginInput.font = UIFont.systemFont(ofSize: Constraints.inputFontSize);
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: loginInput.frame.height))
         paddingView.backgroundColor = UIColor.clear
-        
         loginInput.inputView?.setHeight(Constraints.inputFontSize * 5);
-        
-        
         loginInput.leftView = paddingView
         loginInput.leftViewMode = .always
         
-        
-        
         view.addSubview(loginInput);
-        
         loginInput.pinCenterX(to: view);
         loginInput.pinLeft(to: view, Constraints.loginInputLeft);
         loginInput.pinTop(to: loginTitle.bottomAnchor, Constraints.loginInputTop);
@@ -170,7 +164,6 @@ final class LoginViewController: UIViewController {
     
     private func configurePasswordInput() {
         passwordInput.translatesAutoresizingMaskIntoConstraints = false;
-        
         passwordInput.placeholder = Constraints.passwordInputPlaceholder;
         passwordInput.attributedPlaceholder = NSAttributedString(string: passwordInput.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
         passwordInput.backgroundColor = Colors.white;
@@ -178,15 +171,10 @@ final class LoginViewController: UIViewController {
         passwordInput.font = UIFont.systemFont(ofSize: Constraints.inputFontSize);
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordInput.frame.height))
         paddingView.backgroundColor = UIColor.clear
-        
         passwordInput.leftView = paddingView
         passwordInput.leftViewMode = .always
-        
         passwordInput.isSecureTextEntry = true;
-        
-        
         view.addSubview(passwordInput);
-        
         passwordInput.pinCenterX(to: view);
         passwordInput.pinLeft(to: view, Constraints.passwordInputLeft);
         passwordInput.pinTop(to: loginInput.bottomAnchor, Constraints.passwordInputTop);
@@ -209,7 +197,6 @@ final class LoginViewController: UIViewController {
         loginButton.backgroundColor = Colors.blue;
         registerButton.backgroundColor = Colors.blue;
         
-        //add targets
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonPressed), for: .touchUpInside)
         
@@ -238,13 +225,9 @@ final class LoginViewController: UIViewController {
     private func configureSwitchButton() {
         switchButton.translatesAutoresizingMaskIntoConstraints = false;
         switchButton.layer.cornerRadius = Constraints.cornerRadius;
-        
         switchButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constraints.switchButtonTextSize);
-        
         switchButton.titleLabel?.textColor = Colors.white;
-        
         switchButton.backgroundColor = .clear;
-        
         switchButton.addTarget(self, action: #selector(switchButtonPressed), for: .touchUpInside);
         
         if (isLoginSelected) {
@@ -254,13 +237,10 @@ final class LoginViewController: UIViewController {
         }
         
         view.addSubview(switchButton);
-        
         switchButton.pinCenterX(to: view);
         switchButton.pinTop(to: loginButton.bottomAnchor, Constraints.switchButtonTop);
     }
-    
-    
-    
+
     @objc
     private func switchButtonPressed() {
         isLoginSelected = !isLoginSelected;
@@ -270,20 +250,16 @@ final class LoginViewController: UIViewController {
             registerButton.isEnabled = false;
             loginButton.isHidden = false;
             loginButton.isEnabled = true;
-            
             registerTitle.isHidden = true;
             loginTitle.isHidden = false;
-            
             switchButton.setTitle(Constraints.switchButtonLoginText, for: .normal);
         } else {
             loginButton.isHidden = true;
             loginButton.isEnabled = false;
             registerButton.isHidden = false;
             registerButton.isEnabled = true;
-            
             loginTitle.isHidden = true;
             registerTitle.isHidden = false;
-            
             switchButton.setTitle(Constraints.switchButtonRegisterText, for: .normal);
         }
     }
@@ -293,13 +269,14 @@ final class LoginViewController: UIViewController {
         loginInput.backgroundColor = Colors.white;
         passwordInput.backgroundColor = Colors.white;
         let login: String = loginInput.text!;
-        var password: String = passwordInput.text!;
-        if (login.isEmpty) {
+        let password: String = passwordInput.text!;
+        
+        if (login.isEmpty || textMatchesRegex(text: login, regexPattern: loginRegEx)) {
             loginInput.backgroundColor = Colors.red;
             return;
         }
         
-        if (password.isEmpty) {
+        if (password.isEmpty || textMatchesRegex(text: password, regexPattern: passwordRegEx)) {
             passwordInput.backgroundColor = Colors.red;
             return;
         }
@@ -308,14 +285,11 @@ final class LoginViewController: UIViewController {
           if let error = error {
             print("Error during login: \(error.localizedDescription)")
               self.displayErrorMessage()
-            // Handle error appropriately (e.g., display an error message)
           } else if let response = response {
             print(response)
-
-            var failed = response.login.isEmpty || response.passwordHash.isEmpty;
+              let failed = response.login.isEmpty || response.passwordHash.isEmpty;
             self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
           } else {
-            // Handle unexpected scenario (shouldn't happen if error handling is proper)
             print("Unexpected response during login")
           }
         });
@@ -327,13 +301,13 @@ final class LoginViewController: UIViewController {
         loginInput.backgroundColor = Colors.white;
         passwordInput.backgroundColor = Colors.white;
         let login: String = loginInput.text!;
-        var password: String = passwordInput.text!;
-        if (login.isEmpty) {
+        let password: String = passwordInput.text!;
+        if (login.isEmpty || textMatchesRegex(text: login, regexPattern: loginRegEx)) {
             loginInput.backgroundColor = Colors.red;
             return;
         }
         
-        if (password.isEmpty) {
+        if (password.isEmpty || textMatchesRegex(text: password, regexPattern: passwordRegEx)) {
             passwordInput.backgroundColor = Colors.red;
             return;
         }
@@ -342,14 +316,11 @@ final class LoginViewController: UIViewController {
           if let error = error {
             print("Error during login: \(error.localizedDescription)")
               self.displayErrorMessage()
-            // Handle error appropriately (e.g., display an error message)
           } else if let response = response {
             print(response)
-
-            var failed = response.login.isEmpty || response.passwordHash.isEmpty;
+              let failed = response.login.isEmpty || response.passwordHash.isEmpty;
             self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
           } else {
-            // Handle unexpected scenario (shouldn't happen if error handling is proper)
             print("Unexpected response during login")
           }
         });
@@ -360,10 +331,7 @@ final class LoginViewController: UIViewController {
         DispatchQueue.main.async {
             if (failed) {
                 self.displayErrorMessage();
-//                self.appTitle.textColor = .red;
                 return;
-            } else {
-//                self.appTitle.textColor = .green;
             }
             self.defaults.set(login, forKey: Constraints.loginKey);
             self.defaults.set(hash, forKey: Constraints.passwordKey);
@@ -379,6 +347,18 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)  // Resigns first responder status, dismissing keyboard
+        view.endEditing(true)
+    }
+    
+    private func textMatchesRegex(text: String, regexPattern: String) -> Bool {
+        do {
+            let regex = try NSRegularExpression(pattern: regexPattern)
+            let range = NSRange(text.startIndex..., in: text)
+            let matches = regex.firstMatch(in: text, options: [], range: range)
+            return matches != nil
+        } catch {
+            print("Error creating regular expression: \(error)")
+            return false
+        }
     }
 }

@@ -18,7 +18,6 @@ class AppInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        // Do any additional setup after loading the view.
     }
     
     private func configureUI() {
@@ -48,17 +47,14 @@ class AppInfoViewController: UIViewController {
         map.pinLeft(to: view, 20)
         map.pinRight(to: view, 20)
         map.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 20)
-//        let center = CLLocationCoordinate2D(latitude: 37.649439, longitude: 55.753994)
         let center = CLLocationCoordinate2D(latitude: 55.753994, longitude: 37.649439)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         map.setRegion(region, animated: true)
 
-        // Create an annotation for the given location
         let annotation = MKPointAnnotation()
         annotation.coordinate = center
         map.addAnnotation(annotation)
 
-        // Disable user interaction on the map
         map.isUserInteractionEnabled = false
     }
 }

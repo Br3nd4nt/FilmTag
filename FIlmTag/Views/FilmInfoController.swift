@@ -19,27 +19,21 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
     private let starRating: CosmosView = CosmosView();
     private let userReview: UITextField = UITextField();
     private let sendReviewButton: UIButton = UIButton();
-    
     private let scrollView: UIScrollView = UIScrollView();
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userReview.delegate = self
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false  // Optional: Allow taps to go through to underlying views
         view.addGestureRecognizer(tapGesture)
-        
         starRating.settings.filledColor = Colors.red
         starRating.settings.filledBorderColor = Colors.red
         starRating.settings.emptyBorderColor = Colors.white
         starRating.settings.minTouchRating = 1
         starRating.settings.starSize = 40
         configureUI()
-        
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         }
 
         deinit {
@@ -51,20 +45,13 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         let keyboardFrame = keyboardValue.cgRectValue
         let keyboardHeight = keyboardFrame.height
 
-        // Adjust the bottom content inset of your scroll view
         let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
         scrollView.contentInset = contentInset
 
-        // Optionally, scroll the content to ensure the textField is visible
         scrollView.scrollIndicatorInsets = contentInset
         scrollView.setContentOffset(CGPoint(x: 0, y: userReview.frame.maxY - keyboardHeight), animated: true)
     }
 
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//        scrollView.contentInset = .zero
-//        scrollView.scrollIndicatorInsets = .zero
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if (film == nil) {
@@ -72,8 +59,7 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         }
         posterView.image = film?.poster
         titleView.text = film?.title
-        descriptionView.text = film?.overview        
-        //configure with film
+        descriptionView.text = film?.overview
     }
 
     private func configureUI() {
@@ -82,9 +68,7 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         scrollView.pinLeft(to: view)
         scrollView.pinTop(to: view)
         scrollView.pinBottom(to: view)
-        
-        
-        
+
         view.backgroundColor = Colors.dark
         posterView.translatesAutoresizingMaskIntoConstraints = false
         posterView.clipsToBounds = true
@@ -113,7 +97,6 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         descriptionView.textColor = Colors.white
         descriptionView.numberOfLines = 0
         
-        
         starRating.translatesAutoresizingMaskIntoConstraints = false
         starRating.clipsToBounds = true
         scrollView.addSubview(starRating)
@@ -139,18 +122,15 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
         sendReviewButton.pinTop(to: userReview.bottomAnchor, 10)
         sendReviewButton.pinCenterX(to: scrollView)
         sendReviewButton.addTarget(self, action: #selector(sendReviewButtonPressed), for: .touchUpInside)
-        
     }
     
     @objc
     private func sendReviewButtonPressed() {
-
         if (userReview.text == nil || userReview.text!.isEmpty) {
-
             return
         }
+        
         if starRating.rating < 1 {
-
             return
         }
         FilmAPIController.leaveReview(film: self.film!, reviewNumber: starRating.rating, reviewText: userReview.text!)
@@ -158,6 +138,6 @@ class FilmInfoController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)  // Resigns first responder status, dismissing keyboard
+        view.endEditing(true)
     }
 }

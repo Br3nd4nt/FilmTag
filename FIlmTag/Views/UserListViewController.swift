@@ -22,11 +22,8 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.dark
         username = defaults.string(forKey: Constraints.loginKey)!
-        
         self.configureLabel()
-        
         self.configureTable()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +35,6 @@ class UserListViewController: UIViewController {
         FilmAPIController.getUserReviews(username: self.username, completion: {response, error in
             if let error = error {
               print("Error during getting reviews: \(error.localizedDescription)")
-              // Handle error appropriately (e.g., display an error message)
             } else {
                 self.reviews = []
                 for review in response {
@@ -46,25 +42,20 @@ class UserListViewController: UIViewController {
                     if unwrapped == nil {
                         continue
                     }
+                    
                     SDWebImageManager.shared.loadImage(with: URL(string: unwrapped!.poster_path), progress: nil, completed: { (image: UIImage?, _: Data?, _: Error?, _: SDImageCacheType, _: Bool, _: URL?) in
                         if let error = error {
                                 print("Error downloading image:", error)
-                                // Handle the error appropriately, e.g., display a placeholder image
                         } else {
                             DispatchQueue.main.async {
-                                let reviewToAdd = ReviewForDisplay(username: unwrapped!.username, title: unwrapped!.title, stars: unwrapped!.stars, text: unwrapped!.text, poster: self.resizeImage(image: image!, targetSize: UIImage(named: "placeholder")!.size)!)
+                                let reviewToAdd = ReviewForDisplay(username: unwrapped!.username, title: unwrapped!.title, stars: unwrapped!.stars, text: unwrapped!.text, poster: image!.resize(to: UIImage(named: "placeholder")!.size)!)
                                 self.reviews.append(reviewToAdd)
-                                
                                 self.table.reloadData()
                             }
                         }
                     })
-                    
                 }
-                
-                
             }
-            
         })
     }
     
@@ -75,9 +66,8 @@ class UserListViewController: UIViewController {
         reviewsLabel.textColor = Colors.white
         reviewsLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
         reviewsLabel.pinLeft(to: view, 10)
-        
     }
-    
+
     private func configureTable() {
         view.addSubview(table)
         table.backgroundColor = Colors.dark
@@ -87,18 +77,9 @@ class UserListViewController: UIViewController {
         table.pinRight(to: view)
         table.pinTop(to: reviewsLabel.bottomAnchor, 10)
         table.pinBottom(to: view)
-        
         table.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.reuseId)
     }
-    
-    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
-      let format = UIGraphicsImageRendererFormat()
-      format.scale = image.scale // Maintain image scale
-      let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
-      return renderer.image { context in
-        image.draw(in: CGRect(origin: .zero, size: targetSize))
-      }
-    }
+
 }
 
 extension UserListViewController: UITableViewDataSource {
@@ -119,8 +100,6 @@ extension UserListViewController: UITableViewDataSource {
             return cell;
         }
     }
-    
-    
 }
 
 final class ReviewTableCell: UITableViewCell {
@@ -130,7 +109,6 @@ final class ReviewTableCell: UITableViewCell {
     let titleView: UILabel = UILabel()
     let reviewView: UILabel = UILabel()
     let starsView: CosmosView = CosmosView()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -154,7 +132,6 @@ final class ReviewTableCell: UITableViewCell {
         backgroundColor = .clear
         
         self.addSubview(wrap)
-        
         wrap.backgroundColor = Colors.placeholderColor
         wrap.layer.cornerRadius = 5
         wrap.pinVertical(to: self, 10)
@@ -194,8 +171,5 @@ final class ReviewTableCell: UITableViewCell {
         reviewView.pinTop(to: starsView.bottomAnchor, 10)
         reviewView.pinLeft(to: posterView.trailingAnchor, 10)
         reviewView.pinRight(to: wrap, 10)
-    
-        
     }
-    
 }

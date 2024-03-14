@@ -21,64 +21,52 @@ final class Auth {
         let passwordHash: String = sha256Hash(data: passwordWithSalt);
         let urlString = "http://" + Constraints.serverIP + "/users/login/" + login + "/" + passwordHash;
         guard let url = URL(string: urlString) else {return;};
-        
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(nil, error);
                 return;
             }
-            
             do {
                 if (data == nil) {
                     completion(nil, nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode(ServerResponse.self, from: dataUnwrapped);
-                    
                     completion(decodedData, nil);
                 }
             } catch {
                 completion(nil, nil);
             }
         }
-        
         task.resume();
     }
     
     static func loginWithHash(login: String, passwordHash: String, completion: @escaping (ServerResponse?, Error?) -> Void) {
         let urlString = "http://" + Constraints.serverIP + "/users/login/" + login + "/" + passwordHash;
         guard let url = URL(string: urlString) else {return;};
-        
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(nil, error);
                 return;
             }
-            
             do {
                 if (data == nil) {
                     completion(nil, nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode(ServerResponse.self, from: dataUnwrapped);
-                    
                     completion(decodedData, nil);
                 }
             } catch {
                 completion(nil, nil);
             }
         }
-        
         task.resume();
     }
 
@@ -87,32 +75,26 @@ final class Auth {
         let passwordHash: String = sha256Hash(data: passwordWithSalt);
         let urlString = "http://" + Constraints.serverIP + "/users/register/" + login + "/" + passwordHash;
         guard let url = URL(string: urlString) else {return;};
-        
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(nil, error);
                 return;
             }
-            
             do {
                 if (data == nil) {
                     completion(nil, nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode(ServerResponse.self, from: dataUnwrapped);
-                    
                     completion(decodedData, nil);
                 }
             } catch {
                 completion(nil, nil);
             }
         }
-        
         task.resume();
     }
     
@@ -121,32 +103,26 @@ final class Auth {
         let passwordHash: String = sha256Hash(data: passwordWithSalt);
         let urlString = "http://" + Constraints.serverIP + "/users/change_username/" + oldLogin + "/" + newLogin + "/" + passwordHash;
         guard let url = URL(string: urlString) else {return;};
-        
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(nil, error);
                 return;
             }
-            
             do {
                 if (data == nil) {
                     completion(nil, nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode(ServerResponse.self, from: dataUnwrapped);
-                    
                     completion(decodedData, nil);
                 }
             } catch {
                 completion(nil, nil);
             }
         }
-        
         task.resume();
     }
     
@@ -157,37 +133,29 @@ final class Auth {
         let newPasswordHash: String = sha256Hash(data: newPasswordWithSalt);
         let urlString = "http://" + Constraints.serverIP + "/users/change_password/" + login + "/" + oldPasswordHash + "/" + newPasswordHash;
         guard let url = URL(string: urlString) else {return;};
-        
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(nil, error);
                 return;
             }
-            
             do {
                 if (data == nil) {
                     completion(nil, nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode(ServerResponse.self, from: dataUnwrapped);
-                    
                     completion(decodedData, nil);
                 }
             } catch {
                 completion(nil, nil);
             }
         }
-        
         task.resume();
     }
 }
-
-
 
 struct ServerResponse : Codable, Hashable {
     let login: String

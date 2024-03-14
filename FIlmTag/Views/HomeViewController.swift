@@ -13,9 +13,10 @@ class HomeViewController: UIViewController {
     private let defaults = UserDefaults.standard
     private var username: String = ""
     private var films: [FilmForDisplay] = []
+    
     private var shuffleButton: UIButton = {
       let button = UIButton(type: .custom)
-      let configuration = UIImage.SymbolConfiguration(pointSize: 30) // Adjust pointSize as needed
+      let configuration = UIImage.SymbolConfiguration(pointSize: 30)
         button.setImage(UIImage(systemName: "arrow.counterclockwise", withConfiguration: configuration)!.withRenderingMode(.alwaysTemplate), for: .normal)
         button.backgroundColor = UIColor(displayP3Red: 160/255, green: 211/255, blue: 196/255, alpha: 1);
         button.tintColor = .white
@@ -23,7 +24,6 @@ class HomeViewController: UIViewController {
     }()
     private let filmsToWatchLabel: UILabel = UILabel()
     private let table: UITableView = UITableView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -34,11 +34,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     private func configureUI() {
-        
         view.addSubview(filmsToWatchLabel)
         filmsToWatchLabel.text = "   Films for you to watch: "
         filmsToWatchLabel.font = UIFont.boldSystemFont(ofSize: 30)
@@ -58,17 +56,15 @@ class HomeViewController: UIViewController {
         
         view.addSubview(shuffleButton)
         shuffleButton.translatesAutoresizingMaskIntoConstraints = false
-          
           NSLayoutConstraint.activate([
-            shuffleButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20), // Adjust spacing as needed
-            shuffleButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20), // Adjust spacing as needed
-            shuffleButton.heightAnchor.constraint(equalToConstant: 60), // Adjust size as needed
-            shuffleButton.widthAnchor.constraint(equalToConstant: 60) // Adjust size as needed
+            shuffleButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            shuffleButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+            shuffleButton.heightAnchor.constraint(equalToConstant: 60),
+            shuffleButton.widthAnchor.constraint(equalToConstant: 60)
           ])
         shuffleButton.layer.cornerRadius = 30
         shuffleButton.addTarget(self, action: #selector(getRecomendedFilms), for: .touchUpInside)
         getRecomendedFilms()
-        
     }
     
     @objc
@@ -79,7 +75,6 @@ class HomeViewController: UIViewController {
             
             if let error = error {
               print("Error during getting reviews: \(error.localizedDescription)")
-              // Handle error appropriately (e.g., display an error message)
             } else {
                 for review in response {
                     let unwrapped = review ?? nil
@@ -87,7 +82,6 @@ class HomeViewController: UIViewController {
                         continue
                     }
                     if unwrapped?.stars ?? 0 >= 3 {
-                        print("appended")
                         reviews.append(unwrapped!)
                     }
                 }
@@ -99,7 +93,6 @@ class HomeViewController: UIViewController {
                 FilmAPIController.getSimmilar(goodFilm, completion: {response, error in
                     if let error = error {
                       print("Error during search: \(error.localizedDescription)")
-                      // Handle error appropriately (e.g., display an error message)
                     } else {
                         self.films = []
                         for film in response {
@@ -110,12 +103,10 @@ class HomeViewController: UIViewController {
                             SDWebImageManager.shared.loadImage(with: URL(string: unwrapped!.poster_path), progress: nil, completed: { (image: UIImage?, _: Data?, _: Error?, _: SDImageCacheType, _: Bool, _: URL?) in
                                 if let error = error {
                                         print("Error downloading image:", error)
-                                        // Handle the error appropriately, e.g., display a placeholder image
                                 } else {
                                     DispatchQueue.main.async {
-                                        let filmToAdd = FilmForDisplay(title: unwrapped!.title, api_id: unwrapped!.api_id, overview: unwrapped!.overview, poster: self.resizeImage(image: image!, targetSize: UIImage(named: "placeholder")!.size)!, review_average: unwrapped!.review_average)
+                                        let filmToAdd = FilmForDisplay(title: unwrapped!.title, api_id: unwrapped!.api_id, overview: unwrapped!.overview, poster: image!.resize(to: UIImage(named: "placeholder")!.size)!, review_average: unwrapped!.review_average)
                                         self.films.append(filmToAdd)
-                                        
                                         self.table.reloadData()
                                         self.shuffleButton.isEnabled = true
                                     }
@@ -126,15 +117,6 @@ class HomeViewController: UIViewController {
                 })
             }
         })
-    }
-    
-    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
-      let format = UIGraphicsImageRendererFormat()
-      format.scale = image.scale // Maintain image scale
-      let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
-      return renderer.image { context in
-        image.draw(in: CGRect(origin: .zero, size: targetSize))
-      }
     }
 }
 
@@ -158,12 +140,8 @@ extension HomeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected: ", indexPath.row)
         let filmInfo: FilmInfoController = FilmInfoController();
-        
         filmInfo.film = films[indexPath.row]
-        
         present(filmInfo, animated: true)
     }
-        
 }

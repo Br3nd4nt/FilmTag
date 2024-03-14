@@ -40,15 +40,12 @@ class FilmAPIController {
     }
 
     static func leaveReview(film: FilmForDisplay, reviewNumber: Double, reviewText: String) {
-        print("started")
         let login: String = defaults.string(forKey: Constraints.loginKey)!
         var urlString: String = "http://" + Constraints.serverIP + "/review/"
         urlString +=  login + "/" + film.title + "/" + reviewText + "/" + String(reviewNumber)
         guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {return;};
-        print("url created")
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 print("There was an error while posting review: ", error)
@@ -59,12 +56,10 @@ class FilmAPIController {
     }
     
     static func getUserReviews(username: String, completion: @escaping ([Review?], Error?) -> Void) {
-        print("url created")
         let urlString: String = "http://" + Constraints.serverIP + "/get_reviews/" + username;
         guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {return;};
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        print("requestcreated")
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 print("error while getting reviews: ", error)
@@ -76,12 +71,9 @@ class FilmAPIController {
                     completion([nil], nil);
                 } else {
                     let dataUnwrapped = data!;
-                    
                     let decoder = JSONDecoder();
                     let decodedData = try decoder.decode([Review].self, from: dataUnwrapped);
-                    print("every thing is okay")
                     completion(decodedData, nil);
-                    
                 }
             } catch {
                 completion([nil], nil);
@@ -95,7 +87,6 @@ class FilmAPIController {
         guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {return;};
         var urlRequest = URLRequest(url: url);
         urlRequest.httpMethod = "GET";
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion([nil], error);
@@ -126,7 +117,6 @@ struct Film: Codable, Hashable {
     let overview: String
     let poster_path: String
     let review_average: Float
-    
 }
 
 struct FilmForDisplay {

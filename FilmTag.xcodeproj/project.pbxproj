@@ -10,6 +10,7 @@
 		06389A982BA0B76500A11185 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06389A972BA0B76500A11185 /* ChangePasswordViewController.swift */; };
 		063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A13392BA06C65006A9DDF /* AppInfoViewController.swift */; };
 		063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */; };
+		0656DB0B2BA2784200914ECF /* UIImageExtensionForResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0656DB0A2BA2784200914ECF /* UIImageExtensionForResize.swift */; };
 		065AEC202B9BC1B000DC3AE3 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */; };
 		065AEC222B9BC21E00DC3AE3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */; };
 		065AEC242B9BC26000DC3AE3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */; };
@@ -33,6 +34,7 @@
 		06389A972BA0B76500A11185 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		063A13392BA06C65006A9DDF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppInfoViewController.swift; path = FilmTag/Views/AppInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		063A133B2BA07C22006A9DDF /* ChangeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeLoginViewController.swift; path = FilmTag/Views/ChangeLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		0656DB0A2BA2784200914ECF /* UIImageExtensionForResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionForResize.swift; sourceTree = "<group>"; };
 		065AEC1F2B9BC1B000DC3AE3 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabController.swift; path = FIlmTag/Views/TabController.swift; sourceTree = SOURCE_ROOT; };
 		065AEC212B9BC21E00DC3AE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FIlmTag/Views/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		065AEC232B9BC26000DC3AE3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = FIlmTag/Views/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -119,6 +121,7 @@
 				06B3830E2B9A018C00DF3070 /* Info.plist */,
 				06B383062B9A018900DF3070 /* FIlmTag.xcdatamodeld */,
 				06B383162B9A038100DF3070 /* UIView+pin.swift */,
+				0656DB0A2BA2784200914ECF /* UIImageExtensionForResize.swift */,
 			);
 			path = FIlmTag;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				065CB2532B9FFDCF002575F3 /* SettingsViewController.swift in Sources */,
 				06389A982BA0B76500A11185 /* ChangePasswordViewController.swift in Sources */,
 				063A133A2BA06C65006A9DDF /* AppInfoViewController.swift in Sources */,
+				0656DB0B2BA2784200914ECF /* UIImageExtensionForResize.swift in Sources */,
 				06B2573B2B9B32B8003E6324 /* Auth.swift in Sources */,
 				063A133C2BA07C22006A9DDF /* ChangeLoginViewController.swift in Sources */,
 				06B382FE2B9A018900DF3070 /* AppDelegate.swift in Sources */,

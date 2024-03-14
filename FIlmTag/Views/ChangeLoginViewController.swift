@@ -27,12 +27,11 @@ class ChangeLoginViewController: UIViewController {
         super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGesture.cancelsTouchesInView = false  // Optional: Allow taps to go through to underlying views
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
         
         loginOkAlert.addAction(okAction)
         configureUI()
-        // Do any additional setup after loading the view.
     }
     
     private func configureUI() {
@@ -129,15 +128,11 @@ class ChangeLoginViewController: UIViewController {
         Auth.changeLogin(oldLogin: oldLogin, newLogin: newLogin, password: password, completion: { response, error in
           if let error = error {
             print("Error during changing login: \(error.localizedDescription)")
-//              self.displayErrorMessage()
-            // Handle error appropriately (e.g., display an error message)
           } else if let response = response {
             print(response)
-
             var failed = response.login.isEmpty || response.passwordHash.isEmpty;
             self.onServerResponse(login: response.login, hash: response.passwordHash, failed: failed)
           } else {
-            // Handle unexpected scenario (shouldn't happen if error handling is proper)
             print("Unexpected response during login")
           }
         });
@@ -147,7 +142,6 @@ class ChangeLoginViewController: UIViewController {
         DispatchQueue.main.async {
             if (failed) {
                 return;
-            } else {
             }
             self.defaults.set(login, forKey: Constraints.loginKey);
             self.defaults.set(hash, forKey: Constraints.passwordKey);
@@ -156,12 +150,10 @@ class ChangeLoginViewController: UIViewController {
             self.passwordField.text = ""
             
             self.present(self.loginOkAlert, animated: true, completion: nil);
-            
         }
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)  // Resigns first responder status, dismissing keyboard
+        view.endEditing(true)
     }
-    
 }

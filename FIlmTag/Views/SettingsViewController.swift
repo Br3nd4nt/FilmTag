@@ -19,12 +19,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.dark
-        
         configureUI()
     }
 
     private func configureUI() {
-        // info button
         view.addSubview(showInformationButton)
         showInformationButton.translatesAutoresizingMaskIntoConstraints = false
         showInformationButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 30)
@@ -37,7 +35,6 @@ class SettingsViewController: UIViewController {
         showInformationButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         showInformationButton.addTarget(self, action: #selector(showInformationButtonPressed), for: .touchUpInside)
         
-        //logout button
         view.addSubview(logoutButton)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.pinTop(to: view.centerYAnchor, 140)
@@ -48,7 +45,6 @@ class SettingsViewController: UIViewController {
         logoutButton.layer.cornerRadius = 10
         logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
         
-        //change password
         view.addSubview(changePasswordButton)
         changePasswordButton.translatesAutoresizingMaskIntoConstraints = false
         changePasswordButton.pinBottom(to: view.centerYAnchor, 40)
@@ -60,7 +56,6 @@ class SettingsViewController: UIViewController {
         changePasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         changePasswordButton.addTarget(self, action: #selector(changePasswordButtonPressed), for: .touchUpInside)
         
-        //change login
         view.addSubview(changeLoginButton)
         changeLoginButton.translatesAutoresizingMaskIntoConstraints = false
         changeLoginButton.pinBottom(to: changePasswordButton.topAnchor, 20)
@@ -72,7 +67,6 @@ class SettingsViewController: UIViewController {
         changeLoginButton.layer.cornerRadius = 10
         changeLoginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         changeLoginButton.addTarget(self, action: #selector(changeLoginButtonPressed), for: .touchUpInside)
-        
     }
     
     @objc
@@ -82,7 +76,6 @@ class SettingsViewController: UIViewController {
     
     @objc
     private func logoutButtonPressed() {
-        // call logout in TabController
         NotificationCenter.default.post(name: TabController.functionCallNotification, object: ["data": ""])
     }
     
