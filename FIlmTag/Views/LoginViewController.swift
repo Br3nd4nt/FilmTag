@@ -19,7 +19,7 @@ enum Constraints {
     static let loginKey: String = "login key for userDefaults"
     static let passwordKey: String = "password key for userDefaults"
     
-    static let serverIP: String = "79.137.203.25:8080"
+    static let serverIP: String = "YOUR_IP_HERE:YOUR_PORT_HERE"
     
     static let appTitle: String = "FilmTag"
     static let loginTitle: String = "Log in"
